@@ -50,13 +50,13 @@ Authentication.prototype = (function(){
 					location.replace(this.homePath);
 				}
 			} else {
-				errors.push('Login Failed');
+				errors = ['Login Failed'];
 				displayErrors();
 			}
 			
 		})
 		.catch(error => {
-			errors.push('Login Failed');
+			errors = ['Login Failed'];
 			displayErrors();
 		});
 
