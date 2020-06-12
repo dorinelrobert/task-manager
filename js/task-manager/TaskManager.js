@@ -233,7 +233,9 @@ TaskManager.prototype = (function(){
         currentTask.time_limit = minutes;
         this.updateTask(currentTask);
 
+        currentTask.updateDOM( openTaskPageHandler.bind(this) );
         taskPage.updateDOMsetTimeLimit(currentTask);
+        taskPage.updateDOMtimeTotal(currentTask);
     }
 
     function addSessionHandler(formEl){
