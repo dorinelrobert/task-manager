@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'task-manager-icons';
+  src:  url('../fonts/task-manager-icons.eot?p2nibo');
+  src:  url('../fonts/task-manager-icons.eot?p2nibo#iefix') format('embedded-opentype'),
+    url('../fonts/task-manager-icons.ttf?p2nibo') format('truetype'),
+    url('../fonts/task-manager-icons.woff?p2nibo') format('woff'),
+    url('../fonts/task-manager-icons.svg?p2nibo#task-manager-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'task-manager-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-clock:before {
+  content: "\e90c";
+}
+.icon-pencil:before {
+  content: "\e90b";
+}
+.icon-more:before {
+  content: "\e908";
+}
+.icon-trash:before {
+  content: "\e909";
+}
+.icon-check-empty:before {
+  content: "\e90a";
+}
+.icon-tag:before {
+  content: "\e907";
+}
+.icon-close:before {
+  content: "\e906";
+}
+.icon-out:before {
+  content: "\e905";
+}
+.icon-calendar:before {
+  content: "\e900";
+}
+.icon-check:before {
+  content: "\e901";
+}
+.icon-check-round:before {
+  content: "\e902";
+}
+.icon-plus:before {
+  content: "\e903";
+}
+.icon-warning:before {
+  content: "\e904";
+}
