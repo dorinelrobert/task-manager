@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
+	
+	<title>Sign In - Task Manager</title>
+
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css" href="css/task-manager-icons.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body class="page-login">
+	<header class="header">
+		<div class="container">
+			<nav class="navbar">
+				<a class="logo" href="">
+					<img src="/images/logo.png" alt="" title="" class="logo__img">
+					<span class="logo__text">Task Manager</span>
+				</a>
+				<div class="hidden-on-login dropdown">
+					<button class="btn dropdown__toggle">
+						<span class="icon-clock"></span> Today Activity
+					</button>
+					<div class="dropdown__menu" id="js-today-activity">
+						<!-- today activity -->
+					</div>
+				</div>
+				<div class="hidden-on-login auth-nav" id="js-auth-nav">
+					<!-- auth nav -->
+				</div>
+			</nav>
+		</div>
+	</header>
+	<main>
+		<div class="container">
+			<div class="section-header">
+				<h1 class="section-header__title">Sign in</h1>
+				<p class="section-header__subtitle">Enter your details below</p>
+			</div>
+			<div class="center-col">
+				<form class="form" id="auth-form">
+					<ul class="form__errors" id="js-auth-errors"></ul>
+					<div class="form__row">
+						<label for="username" class="assistive-text">Username</label>
+						<input type="text" placeholder="username" class="form__input" name="username" id="username" value="user1">
+					</div>
+					<div class="form__row">
+						<label for="password" class="assistive-text">Password</label>
+						<input type="password" placeholder="password" class="form__input" name="password" id="password" value="123456">
+					</div>
+					<button type="submit" class="btn btn--primary btn--block">Login</button>
+				</form>
+			</div>
+		</div>
+	</main>
+	<script type="module" src="js/app.js"></script>
+</body>
+</html>

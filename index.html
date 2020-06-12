@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover" />
+	
+	<title>Dashboard - Task Manager</title>
+
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css" href="css/task-manager-icons.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+			<nav class="navbar">
+				<a class="logo" href="">
+					<img src="/images/logo.png" alt="" title="" class="logo__img">
+					<span class="logo__text">Task Manager</span>
+				</a>
+				<div class="hidden-on-login dropdown">
+					<button class="btn dropdown__toggle" id="js-btn-activity">
+						<span class="icon-clock"></span> 
+						<span class="hidden-on-mobile">Today Activity</span>
+					</button>
+					<div class="dropdown__menu" id="js-today-activity">
+						<!-- today activity -->
+					</div>
+				</div>
+				<div class="hidden-on-login auth-nav" id="js-auth-nav">
+					<!-- auth nav -->
+				</div>
+			</nav>
+		</div>
+	</header>
+	<main>
+		<div class="tasks">
+			<div class="tasks__add">
+				<div class="center-col" id="js-task-add">
+					<!-- add task form -->
+				</div>
+			</div>
+			<div class="tasks__list">
+				<div class="tasks__scroll">
+					<div class="center-col" id="js-task-list">
+						<!-- task list -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal" id="js-taskpage" tabindex="0">
+			<!-- task details -->
+		</div>
+	</main>
+</body>
+<script type="module" src="js/app.js"></script>
+</html>
