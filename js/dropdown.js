@@ -1,66 +1,57 @@
-export function DropDown(toggle_button){
-    this.toggle_button = toggle_button || '.dropdown__toggle';
+export function DropDown(toggle_button) {
+  this.toggle_button = toggle_button || ".dropdown__toggle";
 
-    this.init();
+  this.init();
 }
 
-DropDown.prototype = (function(){
+DropDown.prototype = (function () {
+  function closeAll() {
+    document.querySelectorAll(this.toggle_button).forEach((item) => {
+      item.parentNode.classList.remove("open");
+    });
+  }
 
-	// Close all dropdowns
-	function closeAll(){
-		document.querySelectorAll('.dropdown__toggle').forEach( (item) => {
-			item.parentNode.classList.remove('open');
-		});
-	}
+  function clickHandler(event) {
+    const DROPDOWN_TOGGLE = event.target;
+    const IS_DROPDOWN_TOGGLE = DROPDOWN_TOGGLE.classList.contains(
+      this.toggle_button.substring(1)
+    );
+    const MENU = DROPDOWN_TOGGLE.parentNode.querySelector(".dropdown__menu");
 
-	// click handler
-	function clickHandler(event) {
-			
-		const DROPDOWN_TOGGLE = event.target;
-		const IS_DROPDOWN_TOGGLE = DROPDOWN_TOGGLE.classList.contains('dropdown__toggle');
-		const MENU = DROPDOWN_TOGGLE.parentNode.querySelector('.dropdown__menu');
+    if (!IS_DROPDOWN_TOGGLE) {
+      closeAll.call(this);
+    } else {
+      event.preventDefault();
 
-		if ( !IS_DROPDOWN_TOGGLE ){
+      if (DROPDOWN_TOGGLE.parentNode.classList.contains("open")) {
+        closeAll.call(this);
+      } else {
+        closeAll.call(this);
+        DROPDOWN_TOGGLE.parentNode.classList.add("open");
+      }
 
-			  closeAll();
+      MENU.setAttribute("style", "");
 
-	  	} else {
-			event.preventDefault();
+      let menuPos = MENU.getBoundingClientRect();
+      if (menuPos.left < 0) {
+        MENU.style.left =
+          "calc(50% + " + Math.abs(Math.floor(menuPos.left) - 5) + "px)";
+      }
 
-	  		if(DROPDOWN_TOGGLE.parentNode.classList.contains('open')){
-				closeAll();	
-	  		} else {
-				closeAll();
-	  			DROPDOWN_TOGGLE.parentNode.classList.add('open');	
-	  		}
-			
-			MENU.setAttribute('style', '');
-			
-			let menuPos = MENU.getBoundingClientRect(); 
-			if(menuPos.left < 0){
-				MENU.style.left = 'calc(50% + ' + Math.abs(Math.floor(menuPos.left) - 5) + 'px)';
-			}
+      let ww = window.innerWidth || html.clientWidth;
 
-			let ww = window.innerWidth || html.clientWidth;
+      if (menuPos.right > ww) {
+        MENU.style.left =
+          "calc(50% - " + Math.abs(Math.floor(menuPos.right - ww + 5)) + "px)";
+      }
+    }
+  }
 
-			if(menuPos.right > ww){
-				MENU.style.left = 'calc(50% - ' + Math.abs(Math.floor(menuPos.right - ww + 5)) + 'px)';
-			}
+  function init() {
+    document.addEventListener("click", clickHandler.bind(this));
+  }
 
-
-		}
-
-	}
-
-	function init(){
-		// Bind Events
-		document.addEventListener('click', clickHandler);	
-	}
-	
-	return {
-		init: init
-	}
-
+  return {
+    init: init,
+  };
 })();
-
-

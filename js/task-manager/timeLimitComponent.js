@@ -1,10 +1,9 @@
-import { formatMinutes } from './utils.js';
+import { formatMinutes } from "./utils.js";
 
-export function timeLimitComponent(time_limit){
-    let time = document.createElement('div');
-    time.className = 'time-limit';
-    time.innerHTML = 
-            `<div class="time-limit__img">
+export function timeLimitComponent(time_limit) {
+  let time = document.createElement("div");
+  time.className = "time-limit";
+  time.innerHTML = `<div class="time-limit__img">
                 <img src="images/clock.png">
             </div>
             <div class="time-limit__body">
@@ -12,5 +11,5 @@ export function timeLimitComponent(time_limit){
                 <p>${formatMinutes(time_limit)}</p>
             </div>`;
 
-    return time;
+  return time;
 }

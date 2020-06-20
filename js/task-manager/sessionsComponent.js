@@ -1,48 +1,47 @@
-import { formatMinutes } from './utils.js';
+import { formatMinutes } from "./utils.js";
 
-export function sessionComponent(session, deleteHandler){
-    let item, span, button; 
-    
-    item = document.createElement('li');
-    item.className = 'sessions__item';
-    item.id = session.id;
-    item.innerText = formatMinutes(session.time);
+export function sessionComponent(session, deleteHandler) {
+  let item, span, button;
 
-        span = document.createElement('span');
-        span.innerText = session.date;
-        item.appendChild(span);
+  item = document.createElement("li");
+  item.className = "sessions__item";
+  item.id = session.id;
+  item.innerText = formatMinutes(session.time);
 
-        button = document.createElement('button');
-        button.className = 'sessions__del';
-        button.setAttribute('type', 'button');
-        button.innerHTML = '<span class="icon-close"></span>';
-        button.addEventListener('click', function(event){
-            event.preventDefault();
-            deleteHandler(item);
-        });
-        item.appendChild(button);
+  span = document.createElement("span");
+  span.innerText = session.date;
+  item.appendChild(span);
 
-    return item;
+  button = document.createElement("button");
+  button.className = "sessions__del";
+  button.setAttribute("type", "button");
+  button.innerHTML = '<span class="icon-close"></span>';
+  button.addEventListener("click", function (event) {
+    event.preventDefault();
+    deleteHandler(item);
+  });
+  item.appendChild(button);
 
+  return item;
 }
 
-export function sessionContainerComponent(sessions, deleteHandler){
-    let sessionsContainer, sessionList;
+export function sessionContainerComponent(sessions, deleteHandler) {
+  let sessionsContainer, sessionList;
 
-    sessionsContainer = document.createElement('div');
-    sessionsContainer.className = 'sessions';
+  sessionsContainer = document.createElement("div");
+  sessionsContainer.className = "sessions";
 
-    sessions.sort( (a, b) => {
-        return (a.id * 1) < (b.id * 1) ? 1 : -1;
-    });
+  sessions.sort((a, b) => {
+    return a.id * 1 < b.id * 1 ? 1 : -1;
+  });
 
-        sessionList = document.createElement('ul');
+  sessionList = document.createElement("ul");
 
-            for(let item of sessions ){
-                sessionList.appendChild(sessionComponent(item, deleteHandler));
-            }
-        
-        sessionsContainer.appendChild(sessionList);
+  for (let item of sessions) {
+    sessionList.appendChild(sessionComponent(item, deleteHandler));
+  }
 
-    return sessionsContainer;
+  sessionsContainer.appendChild(sessionList);
+
+  return sessionsContainer;
 }

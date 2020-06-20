@@ -1,3 +1,3 @@
-export function errorsComponent(errors){
-    return errors.map(error => `<li>${error}</li>`);
+export function errorsComponent(errors) {
+  return errors.map((error) => `<li>${error}</li>`);
 }
